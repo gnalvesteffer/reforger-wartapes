@@ -378,10 +378,6 @@ AudioOutputStateResClass {
    id 198678
    name "Filter 194"
    tl 196.25 415
-   iops {
-    IOPConnectionClass iopConnection {
-    }
-   }
    wetDry 0.05
    DSPObject BitCrusherDSPTypeClass {
     bitMask "11101101"
@@ -1756,7 +1752,7 @@ AudioOutputStateResClass {
   }
   OBusClass {
    id 169991
-   name "LOUDENER"
+   name "WAR TAPES"
    tl 575 352.5
    conns {
     ConnectionsClass connections {
