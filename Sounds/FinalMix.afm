@@ -137,10 +137,13 @@ AudioOutputStateResClass {
    id 65558
    name "COMP MASTER SFX"
    tl 725.429 -123.092
+   volume 1.778
+   volume_dB 5
    DSPObject CompressorDSPTypeClass {
-    ratio 2
-    attack 30
-    release 80
+    threshold -32.1
+    ratio 13.8
+    attack 241
+    release 41
    }
   }
   FilterClass {
@@ -315,80 +318,73 @@ AudioOutputStateResClass {
   FilterClass {
    id 177174
    name "COMPRESSOR"
-   tl 349.167 389.583
-   volume 31.623
-   volume_dB 30
+   tl 198.056 516.805
+   volume 17.783
+   volume_dB 25
    DSPObject CompressorDSPTypeClass {
-    threshold -25.8
-    ratio 23.1
-    attack 471
-    release 251
-    kneeWidth 3
+    threshold -13.8
+    ratio 16.9
+    attack 61
+    release 161
+    kneeWidth 1
    }
   }
   FilterClass {
    id 189462
    name "Filter 185"
-   tl 232.639 74.028
-   iops {
-    IOPConnectionClass iopConnection {
-     port 0
-     conn {
-      ConnectionsClass connections {
-       id 9
-       links {
-        ConnectionClass connection {
-         id 135181
-         port 2
-        }
-       }
-      }
-     }
-    }
-   }
-   DSPObject Equalizer4DSPTypeClass {
-    gain1 6
-    gain2 -3
-    gain3 -7
-    gain4 -8
-    fc1 195
-    fc2 411
-    fc4 8019
-    qfactor2 1.305
-    qfactor3 0.867
+   tl 232.639 184.028
+   volume 10
+   volume_dB 20
+   DSPObject CompressorDSPTypeClass {
+    threshold -21.7
+    ratio 31.9
+    attack 211
+    release 61
    }
   }
   FilterClass {
-   id 190486
-   name "Filter 186"
-   tl -161.111 143.333
-   iops {
-    IOPConnectionClass iopConnection {
-     port 0
-     conn {
-      ConnectionsClass connections {
-       id 9
-       links {
-        ConnectionClass connection {
-         id 135181
-         port 2
-        }
-       }
-      }
-     }
-    }
-   }
+   id 194582
+   name "Filter 190"
+   tl 235.417 77.841
+   volume 0.316
+   volume_dB -10
    DSPObject Equalizer4DSPTypeClass {
-    gain1 4
-    gain2 -2
+    gain1 6
+    gain2 4
     gain3 1
     gain4 3
-    fc1 100
-    fc2 586
-    fc3 1857
-    fc4 7228
-    qfactor2 1.742
-    qfactor3 1.632
+    fc1 20
+    fc2 195
+    fc3 5368
+    fc4 12583
+    qfactor2 3.819
+    qfactor3 3.163
+   }
+  }
+  FilterClass {
+   id 196630
+   name "Filter 192"
+   tl 7.778 255.556
+   volume 1.778
+   volume_dB 5
+   DSPObject CompressorDSPTypeClass {
+    threshold -35.4
+    ratio 29.5
+    attack 161
+    release 461
+   }
+  }
+  FilterClass {
+   id 198678
+   name "Filter 194"
+   tl 196.25 415
+   iops {
+    IOPConnectionClass iopConnection {
+    }
+   }
+   wetDry 0.05
+   DSPObject BitCrusherDSPTypeClass {
+    bitMask "11101101"
    }
   }
  }
@@ -555,6 +551,76 @@ AudioOutputStateResClass {
        links {
         ConnectionClass connection {
          id 63510
+         port 65
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  FilterChainClass {
+   id 195607
+   name "FilterChain 191"
+   tl 221.944 290.694
+   iops {
+    IOPConnectionClass iopConnection {
+     port 1
+     conn {
+      ConnectionsClass connections {
+       id 18
+       links {
+        ConnectionClass connection {
+         id 189462
+         port 65
+        }
+       }
+      }
+     }
+    }
+    IOPConnectionClass iopConnection {
+     port 2
+     conn {
+      ConnectionsClass connections {
+       id 18
+       links {
+        ConnectionClass connection {
+         id 194582
+         port 65
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  FilterChainClass {
+   id 199703
+   name "FilterChain 195"
+   tl 373.75 383.75
+   iops {
+    IOPConnectionClass iopConnection {
+     port 2
+     conn {
+      ConnectionsClass connections {
+       id 18
+       links {
+        ConnectionClass connection {
+         id 177174
+         port 65
+        }
+       }
+      }
+     }
+    }
+    IOPConnectionClass iopConnection {
+     port 1
+     conn {
+      ConnectionsClass connections {
+       id 18
+       links {
+        ConnectionClass connection {
+         id 198678
          port 65
         }
        }
@@ -1247,8 +1313,6 @@ AudioOutputStateResClass {
      }
     }
    }
-   volume_dB 25
-   volume 17.783
   }
   OBusClass {
    id 123911
@@ -1295,7 +1359,7 @@ AudioOutputStateResClass {
        id 18
        links {
         ConnectionClass connection {
-         id 190486
+         id 196630
          port 65
         }
        }
@@ -1303,8 +1367,6 @@ AudioOutputStateResClass {
      }
     }
    }
-   volume_dB 4
-   volume 1.585
   }
   OBusClass {
    id 134151
@@ -1695,7 +1757,7 @@ AudioOutputStateResClass {
   OBusClass {
    id 169991
    name "LOUDENER"
-   tl 537.5 351.25
+   tl 575 352.5
    conns {
     ConnectionsClass connections {
      id 3
@@ -1712,10 +1774,24 @@ AudioOutputStateResClass {
      port 1
      conn {
       ConnectionsClass connections {
-       id 18
+       id 19
        links {
         ConnectionClass connection {
-         id 177174
+         id 199703
+         port 65
+        }
+       }
+      }
+     }
+    }
+    IOPConnectionClass iopConnection {
+     port 2
+     conn {
+      ConnectionsClass connections {
+       id 22
+       links {
+        ConnectionClass connection {
+         id 187418
          port 65
         }
        }
@@ -1758,10 +1834,10 @@ AudioOutputStateResClass {
      port 1
      conn {
       ConnectionsClass connections {
-       id 18
+       id 19
        links {
         ConnectionClass connection {
-         id 189462
+         id 195607
          port 65
         }
        }
@@ -1873,14 +1949,15 @@ AudioOutputStateResClass {
     }
    }
    thresholdMin -60
-   maxGainReduction -50
-   attack 30
-   release 300
+   thresholdMax -25
+   maxGainReduction -40
+   attack 20
+   release 350
   }
   ODuckerClass {
    id 187418
    name "Ducker 183"
-   tl 245 -176.25
+   tl 246.25 -177.361
    conns {
     ConnectionsClass connections {
      id 3
@@ -1893,10 +1970,10 @@ AudioOutputStateResClass {
     }
    }
    thresholdMin -60
-   thresholdMax 0
-   maxGainReduction -40
+   thresholdMax -20
+   maxGainReduction -15
    attack 50
-   release 600
+   release 150
   }
  }
  Groups {
