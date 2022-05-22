@@ -1,0 +1,8 @@
+GameProject {
+ ID "WarTapes"
+ GUID "596D33D4AED99D76"
+ TITLE "WarTapes"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
