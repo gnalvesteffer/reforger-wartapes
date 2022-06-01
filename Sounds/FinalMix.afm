@@ -136,13 +136,13 @@ AudioOutputStateResClass {
   FilterClass {
    id 65558
    name "COMP MASTER SFX"
-   tl 725.429 -123.092
-   volume 3.162
-   volume_dB 10
+   tl 724.04 -165.235
+   volume 5.623
+   volume_dB 15
    DSPObject CompressorDSPTypeClass {
-    threshold -13.9
-    ratio 37.2
-    attack 301
+    threshold -14
+    ratio 18.3
+    attack 351
     release 121
    }
   }
@@ -272,10 +272,12 @@ AudioOutputStateResClass {
   FilterClass {
    id 145430
    name "PEAK LIMITER SFX"
-   tl 723.889 -5.223
+   tl 725 -5.223
+   volume 0.891
+   volume_dB -1
    DSPObject PeakLimiterDSPTypeClass {
-    threshold -0.3
-    release 40
+    attack 2.3
+    release 32.8
    }
   }
   FilterClass {
@@ -318,40 +320,36 @@ AudioOutputStateResClass {
   FilterClass {
    id 177174
    name "COMPRESSOR"
-   tl 199.306 516.805
-   volume 10
-   volume_dB 20
+   tl 200.556 516.805
+   volume 5.623
+   volume_dB 15
    DSPObject CompressorDSPTypeClass {
-    threshold -12.7
-    ratio 12.4
-    attack 351
-    release 531
+    threshold -36
+    ratio 31.4
+    attack 491
+    release 181
    }
   }
   FilterClass {
    id 189462
    name "Filter 185"
    tl 230.278 184.028
-   volume 10
-   volume_dB 20
    DSPObject CompressorDSPTypeClass {
-    threshold -34.1
-    ratio 36
-    attack 250
-    release 50
+    threshold -25
+    ratio 35
+    attack 500
+    release 15
    }
   }
   FilterClass {
    id 194582
    name "Filter 190"
-   tl 235.417 75.162
-   volume 0.178
-   volume_dB -15
+   tl 235.417 76.591
    DSPObject Equalizer4DSPTypeClass {
-    gain1 5
+    gain1 3
     gain2 -9
     gain3 -4
-    gain4 2
+    gain4 6
     fc1 100
     fc2 367
     fc3 5368
@@ -363,22 +361,22 @@ AudioOutputStateResClass {
   FilterClass {
    id 196630
    name "Filter 192"
-   tl -155.079 252.699
-   volume 1.778
-   volume_dB 5
+   tl -170.079 261.449
    DSPObject CompressorDSPTypeClass {
-    threshold -9.9
-    ratio 19
-    attack 341
-    release 621
+    threshold -41.3
+    ratio 34.7
+    attack 241
+    release 251
     kneeWidth 2
    }
   }
   FilterClass {
    id 198678
    name "Filter 194"
-   tl 188.929 412.321
-   wetDry 0.3
+   tl 191.429 408.571
+   wetDry 0.2
+   volume 3.162
+   volume_dB 10
    DSPObject BitCrusherDSPTypeClass {
     bitMask "10000000"
    }
@@ -388,27 +386,16 @@ AudioOutputStateResClass {
    name "Filter 196"
    tl 188.75 620
    DSPObject Equalizer4DSPTypeClass {
-    gain1 4
-    gain2 6
+    gain1 6
+    gain2 3
     gain3 1
-    gain4 2
+    gain4 3
     fc1 150
     fc2 400
     fc3 5019
     fc4 13984
     qfactor2 0.428
     qfactor3 0.868
-   }
-  }
-  FilterClass {
-   id 201750
-   name "Filter 197"
-   tl 10 354.286
-   wetDry 0.025
-   DSPObject ReverbDSPTypeClass {
-    roomSize 0
-    damping 0
-    width 0.104
    }
   }
  }
@@ -589,20 +576,6 @@ AudioOutputStateResClass {
    tl 227.658 284.98
    iops {
     IOPConnectionClass iopConnection {
-     port 1
-     conn {
-      ConnectionsClass connections {
-       id 18
-       links {
-        ConnectionClass connection {
-         id 201750
-         port 65
-        }
-       }
-      }
-     }
-    }
-    IOPConnectionClass iopConnection {
      port 3
      conn {
       ConnectionsClass connections {
@@ -636,7 +609,7 @@ AudioOutputStateResClass {
   FilterChainClass {
    id 199703
    name "FilterChain 195"
-   tl 375 381.25
+   tl 386 413.25
    iops {
     IOPConnectionClass iopConnection {
      port 2
@@ -697,7 +670,7 @@ AudioOutputStateResClass {
   OBusClass {
    id 2055
    name "Output SFX"
-   tl 1168.351 102.631
+   tl 1168.351 101.52
    conns {
     ConnectionsClass connections {
      id 3
@@ -1343,7 +1316,7 @@ AudioOutputStateResClass {
   OBusClass {
    id 122887
    name "WPN+EXP+VEH"
-   tl 24.035 -162.218
+   tl 21.535 -157.218
    conns {
     ConnectionsClass connections {
      id 3
@@ -1367,11 +1340,13 @@ AudioOutputStateResClass {
      }
     }
    }
+   volume_dB -5
+   volume 0.562
   }
   OBusClass {
    id 123911
    name "REST OF SFX"
-   tl 26.52 100.964
+   tl 27.77 100.964
    conns {
     ConnectionsClass connections {
      id 3
@@ -1813,7 +1788,7 @@ AudioOutputStateResClass {
   OBusClass {
    id 169991
    name "WAR TAPES"
-   tl 575 352.5
+   tl 575 363.071
    conns {
     ConnectionsClass connections {
      id 3
@@ -1840,26 +1815,14 @@ AudioOutputStateResClass {
       }
      }
     }
-    IOPConnectionClass iopConnection {
-     port 2
-     conn {
-      ConnectionsClass connections {
-       id 22
-       links {
-        ConnectionClass connection {
-         id 187418
-         port 65
-        }
-       }
-      }
-     }
-    }
    }
+   volume_dB 10
+   volume 3.162
   }
   OBusClass {
    id 188423
    name "Bus 184"
-   tl 240 -80
+   tl 238.75 -80
    conns {
     ConnectionsClass connections {
      id 3
@@ -2026,10 +1989,10 @@ AudioOutputStateResClass {
     }
    }
    thresholdMin -60
-   thresholdMax -5
-   maxGainReduction -20
-   attack 25
-   release 50
+   thresholdMax -26
+   maxGainReduction -10
+   attack 50
+   release 300
   }
  }
  Groups {
